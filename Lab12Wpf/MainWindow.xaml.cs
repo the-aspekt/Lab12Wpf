@@ -37,9 +37,6 @@ namespace Lab12Wpf
                     timer.Interval = TimeSpan.FromSeconds(3);
                     timer.Tick += Timer_Tick;
                     timer.Start();
-
-                    //очистить ресурсы
-                    
                 }
             }
         }
