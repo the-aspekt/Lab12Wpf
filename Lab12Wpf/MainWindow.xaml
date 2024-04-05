@@ -7,43 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="150" Width="800">
     <Window.Resources>
-        <Style TargetType="CheckBox">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontFamily" Value="GothicE"/>
-            <Setter Property="FontWeight" Value="ExtraBlack"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="CheckBox">
-                        <StackPanel>
-                            <Grid ForceCursor="True" Cursor="Pen">
-                                <Rectangle Width="30" Height="30" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" RadiusX="5" RadiusY="5"/>
-                                <TextBlock x:Name="X" Text="X" HorizontalAlignment="Center" Padding="0,2,3,0" Opacity="0"/>
-                                <TextBlock x:Name="O" Text="?" HorizontalAlignment="Center" Padding="0,2,3,0" Opacity="0"/>
-                            </Grid>
-                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" Foreground="Black"/>
-                        </StackPanel>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="X" Property="Opacity" Value="1"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Foreground" Value="Red"/>
-                            </Trigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsChecked" Value="{x:Null}"/>
-                                    <Condition Property="IsThreeState" Value="True"/>
-                                </MultiTrigger.Conditions>
-                                <MultiTrigger.Setters>
-                                    <Setter TargetName="O" Property="Opacity" Value="1"/>
-                                </MultiTrigger.Setters>
-                            </MultiTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="myResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>        
     </Window.Resources>
     <Grid>
         <Label x:Name="bingoLabel" Content="B I N G O!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="90" FontStyle="Oblique" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5,5,7,5" Visibility="Hidden"/>

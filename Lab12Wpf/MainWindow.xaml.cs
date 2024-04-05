@@ -37,6 +37,9 @@ namespace Lab12Wpf
                     timer.Interval = TimeSpan.FromSeconds(3);
                     timer.Tick += Timer_Tick;
                     timer.Start();
+
+                    //очистить ресурсы
+                    
                 }
             }
         }
@@ -46,6 +49,10 @@ namespace Lab12Wpf
         private void Timer_Tick(object sender, EventArgs e)
         {
             bingoLabel.Visibility = Visibility.Collapsed;
+            foreach (ResourceDictionary dictionary in this.Resources.MergedDictionaries)
+                    {
+                        dictionary.Clear();
+                    }
             timer.Stop();
         }
     }
